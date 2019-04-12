@@ -668,8 +668,8 @@ def parse_device_names(ffmpeg_output):
         if line.startswith("[dshow"):
             logger.debug(line)
             line = line.split("]", 1)[1].strip()
-            if in_video_devices and line.startswith('"'):
-                device_names.append(line[1:-1])
+            if in_video_devices and line.startswith('Alternative name'):
+                device_names.append(line[17:])
             elif "video devices" in line:
                 in_video_devices = True
             elif "devices" in line:
